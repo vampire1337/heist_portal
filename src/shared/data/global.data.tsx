@@ -22,56 +22,41 @@ export const announcementData: AnnouncementProps = {
 };
 
 // Header data
-export const headerData: HeaderProps = {
+export const headerData = {
   links: [
     {
-      label: 'Pages',
+      label: 'Страницы',
       icon: IconChevronDown,
       links: [
         {
-          label: 'Services',
+          label: 'Услуги',
           href: '/services',
         },
         {
-          label: 'Pricing',
+          label: 'Цены',
           href: '/pricing',
         },
         {
-          label: 'About us',
+          label: 'О нас',
           href: '/about',
         },
         {
-          label: 'Contact us',
+          label: 'Контакты',
           href: '/contact',
         },
         {
-          label: 'FAQs',
+          label: 'FAQ',
           href: '/faqs',
-        },
-        {
-          label: 'Terms & Conditions',
-          href: '/terms',
-        },
-        {
-          label: 'Privacy Policy',
-          href: '/privacy',
-        },
+        }
       ],
     },
     {
-      label: 'Blog',
+      label: 'Блог',
       href: '/blog',
     },
     {
-      label: 'Contact',
+      label: 'Контакты',
       href: '/contact',
-    },
-  ],
-  actions: [
-    {
-      text: 'Download',
-      href: 'https://github.com/onwidget/tailnext',
-      targetBlank: true,
     },
   ],
   isSticky: true,
@@ -225,52 +210,37 @@ export const footerData: FooterProps = {
 };
 
 // Footer2 data
-export const footerData2: FooterProps = {
+export const footerData2 = {
   links: [
     {
-      label: 'Terms & Conditions',
-      href: '/terms',
+      label: 'Продукты',
+      links: [
+        {
+          label: 'Услуги',
+          href: '/services',
+        },
+        {
+          label: 'Цены',
+          href: '/pricing',
+        },
+        {
+          label: 'О нас',
+          href: '/about',
+        },
+      ],
     },
     {
-      label: 'Privacy Policy',
-      href: '/privacy',
+      label: 'Поддержка',
+      links: [
+        {
+          label: 'FAQ',
+          href: '/faqs',
+        },
+        {
+          label: 'Контакты',
+          href: '/contact',
+        },
+      ],
     },
   ],
-  columns: [
-    {
-      title: 'Address',
-      texts: ['51 Phasellus Avenue Maecenas', 'Aliquam, AQ 52098'],
-    },
-    {
-      title: 'Phone',
-      texts: ['Reception: +105 123 4567', 'Office: +107 235 7890'],
-    },
-    {
-      title: 'Email',
-      texts: ['Office: info@example.com', 'Site: https://example.com'],
-    },
-  ],
-  socials: [
-    { label: 'Twitter', icon: IconBrandTwitter, href: '#' },
-    { label: 'Instagram', icon: IconBrandInstagram, href: '#' },
-    { label: 'Facebook', icon: IconBrandFacebook, href: '#' },
-    { label: 'RSS', icon: IconRss, href: '#' },
-    { label: 'Github', icon: IconBrandGithub, href: 'https://github.com/onwidget/tailnext' },
-  ],
-  footNote: (
-    <div className="mr-4 rtl:mr-0 rtl:ml-4 text-sm">
-      <span className="float-left rtl:float-right mr-1.5 rtl:mr-0 rtl:ml-1.5 h-5 w-5 rounded-sm bg-[url(https://onwidget.com/favicon/favicon-32x32.png)] bg-cover md:-mt-0.5 md:h-6 md:w-6"></span>
-      <span>
-        Made by{' '}
-        <a
-          className="font-semibold text-slate-900 dark:text-gray-200 hover:text-blue-600 hover:underline dark:hover:text-blue-600"
-          href="https://onwidget.com/"
-        >
-          {' '}
-          onWidget
-        </a>{' '}
-        · All rights reserved.
-      </span>
-    </div>
-  ),
 };

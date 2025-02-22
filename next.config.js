@@ -1,4 +1,5 @@
 const SITE = require('./src/config.js').SITE;
+const { i18n } = require('./next-i18next.config');
 
 /** @type {import('next').NextConfig} */
 module.exports = {
@@ -9,6 +10,7 @@ module.exports = {
 
   swcMinify: true,
   poweredByHeader: false,
+  i18n,
   images: {
     remotePatterns: [
       {

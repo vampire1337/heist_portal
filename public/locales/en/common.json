@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Welcome to Heist Mind",
+    "subtitle": "Your portal to digital excellence",
+    "cta": "Get Started"
+  },
+  "pricing": {
+    "title": "Pricing Plans",
+    "subtitle": "Choose the plan that fits your needs",
+    "trial": "7-day free trial",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save {{percent}}%"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "made": "Made with passion"
+  },
+  "language": {
+    "en": "English",
+    "ru": "Russian"
+  }
+} 

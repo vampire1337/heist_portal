@@ -10,6 +10,7 @@ import ToggleMenu from '../atoms/ToggleMenu';
 import { headerData } from '~/shared/data/global.data';
 import CTA from '../common/CTA';
 import { CallToActionType } from '~/shared/types';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
   const { links, actions, isSticky, showToggleTheme, showRssFeed, position } = headerData;
@@ -150,6 +151,7 @@ const Header = () => {
           } fixed bottom-0 left-0 w-full justify-end p-3 md:static md:mb-0 md:flex md:w-auto md:self-center md:p-0 md:bg-transparent md:dark:bg-transparent md:border-none bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-600`}
         >
           <div className="flex w-full items-center justify-between md:w-auto">
+            <LanguageSwitcher />
             {showToggleTheme && <ToggleDarkMode />}
             {showRssFeed && (
               <Link
