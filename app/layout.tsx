@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-import { dir } from 'i18next';
-import { languages } from '../i18n/settings';
 import { SITE } from '~/config.js';
 
 import Providers from '~/components/atoms/Providers';
@@ -14,33 +12,19 @@ const customFont = CustomFont({ subsets: ['latin', 'cyrillic'], variable: '--fon
 
 export interface LayoutProps {
   children: React.ReactNode;
-  params: { lang: string };
 }
 
-export async function generateStaticParams() {
-  return languages.map((lng) => ({ lang: lng }));
-}
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Heist Mind',
+    default: 'Heist Mind - Digital Excellence',
+  },
+  description: 'Портал цифрового совершенства',
+};
 
-export async function generateMetadata({ params: { lang } }: LayoutProps): Promise<Metadata> {
-  return {
-    title: {
-      template: '%s | Heist Mind',
-      default: 'Heist Mind - Digital Excellence',
-    },
-    description: 'Портал цифрового совершенства',
-    alternates: {
-      canonical: `${SITE.site}`,
-      languages: {
-        'en': `${SITE.site}/en`,
-        'ru': `${SITE.site}/ru`,
-      },
-    },
-  };
-}
-
-export default function RootLayout({ children, params: { lang } }: LayoutProps) {
+export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang={lang} dir={dir(lang)} className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}>
+    <html className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

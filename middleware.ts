@@ -3,25 +3,42 @@ import type { NextRequest } from 'next/server';
 import { fallbackLng, languages } from './i18n/settings';
 
 export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
   const pathname = request.nextUrl.pathname;
-  const pathnameIsMissingLocale = languages.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+
+  // Check if the pathname starts with a locale
+  const pathnameHasLocale = languages.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = fallbackLng;
+  if (!pathnameHasLocale) {
+    // Get the preferred locale from the Accept-Language header
+    const acceptLanguage = request.headers.get('accept-language');
+    let locale = fallbackLng;
 
-    // e.g. incoming request is /products
-    // The new URL is now /en/products
+    if (acceptLanguage) {
+      const preferredLocale = acceptLanguage
+        .split(',')
+        .map(lang => lang.split(';')[0])
+        .find(lang => languages.includes(lang.substring(0, 2)));
+      
+      if (preferredLocale) {
+        locale = preferredLocale.substring(0, 2);
+      }
+    }
+
+    // Redirect to the locale version
     return NextResponse.redirect(
-      new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url)
+      new URL(
+        `/${locale}${pathname === '/' ? '' : pathname}`,
+        request.url
+      )
     );
   }
 }
 
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    // Skip all internal paths (_next, assets, api)
+    '/((?!api|_next/static|_next/image|assets|favicon.ico).*)',
+  ],
 }; 
