@@ -1,4 +1,4 @@
-import { useTranslation } from '../../../../i18n/server';
+import { getTranslation } from '../../../../i18n/server';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { t } = await useTranslation(params.lang, 'common');
+  const { t } = await getTranslation(params.lang, 'common');
   
   return {
     title: t('blog.title'),
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogIndex({ params: { lang } }: Props) {
-  const { t } = await useTranslation(lang, 'common');
+  const { t } = await getTranslation(lang, 'common');
 
   // Here you would typically fetch your blog posts
   const posts = [

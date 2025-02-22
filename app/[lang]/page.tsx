@@ -1,4 +1,4 @@
-import { useTranslation } from '../../i18n/server';
+import { getTranslation } from '../../i18n/server';
 import Hero from '~/components/widgets/Hero';
 import SocialProof from '~/components/widgets/SocialProof';
 import Features from '~/components/widgets/Features';
@@ -27,7 +27,7 @@ import {
 } from '~/shared/data/pages/home.data';
 
 export default async function Page({ params: { lang } }: { params: { lang: string } }) {
-  const { t } = await useTranslation(lang, 'common');
+  const { t } = await getTranslation(lang, 'common');
 
   return (
     <>
