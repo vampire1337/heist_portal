@@ -19,6 +19,11 @@
     "yearly": "Yearly",
     "save": "Save {{percent}}%"
   },
+  "blog": {
+    "title": "Blog",
+    "description": "Latest news and updates from Heist Mind",
+    "comingSoon": "Content coming soon..."
+  },
   "footer": {
     "rights": "All rights reserved",
     "made": "Made with passion"
